@@ -1,0 +1,232 @@
+/* Site de présentation de l'app Notes. Style de l'app (Réglages iOS, transparence réduite) : aplats opaques, filets d'un pixel.
+   Toute valeur brute vit dans TOKENS ; ensuite seulement var(--…). Aucun chiffre en couleur : la couleur ne vit que dans les aplats. */
+
+/* ---------- TOKENS ---------- */
+:root {
+  --bg: #F2F2F7;
+  --cell: #FFFFFF;
+  --label: #000000;
+  --label2: rgba(60, 60, 67, 0.6);
+  --label3: rgba(60, 60, 67, 0.3);
+  --sep: rgba(60, 60, 67, 0.12);
+  --hair: #DADADE;
+  --fill: rgba(120, 120, 128, 0.12);
+  --blue: #0088FF;
+  --blue-press: #0071D6;
+  --on-blue: #FFFFFF;
+  --green: #34C759;
+  --orange: #FF8D28;
+  --red: #FF383C;
+  --purple: #AF52DE;
+  --teal: #5AC8FA;
+  --pink: #FF2D55;
+  --gray: #8E8E93;
+  --icon-ink: #FFFFFF;
+  --phone: #1C1C1E;
+  --r-group: 26px;
+  --r-card: 20px;
+  --r-icon: 7px;
+  --r-pill: 999px;
+  --r-field: 10px;
+  --icon: 29px;
+  --gutter: 16px;
+  --max: 1160px;
+  --text: 1.0625rem;      /* 17 px, corps iOS */
+  --small: 0.9375rem;     /* 15 px */
+  --tiny: 0.8125rem;      /* 13 px */
+  --h-sec: 1.375rem;      /* 22 px, titre de section */
+  --h1: clamp(1.875rem, 4.6vw, 2.75rem);
+  --shadow-phone: 0 24px 48px -24px rgba(0, 0, 0, 0.35);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --cell: #1C1C1E;
+    --label: #FFFFFF;
+    --label2: rgba(235, 235, 245, 0.6);
+    --label3: rgba(235, 235, 245, 0.3);
+    --sep: rgba(84, 84, 88, 0.6);
+    --hair: #38383A;
+    --fill: rgba(120, 120, 128, 0.24);
+    --blue-press: #339FFF;
+    --green: #30D158;
+    --phone: #3A3A3C;
+    --shadow-phone: 0 24px 48px -24px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--label); font: 400 var(--text)/1.5 var(--font); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: var(--gutter); top: 8px; z-index: 50; background: var(--cell); padding: 8px 12px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* ---------- Barre du haut ---------- */
+.bar { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--hair); }
+.bar-in { max-width: var(--max); margin: 0 auto; padding: 10px var(--gutter); display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--label); font-weight: 600; white-space: nowrap; }
+.brand:hover { text-decoration: none; }
+.brand img { width: 30px; height: 30px; border-radius: var(--r-icon); }
+.brand span small { color: var(--label2); font-weight: 400; }
+.nav { display: flex; gap: 4px; margin-left: auto; }
+.nav a { color: var(--label); font-size: var(--small); padding: 6px 10px; border-radius: var(--r-pill); }
+.nav a:hover { background: var(--fill); text-decoration: none; }
+.nav a[aria-current] { background: var(--fill); font-weight: 600; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--on-blue);
+  border-radius: var(--r-pill); padding: 12px 22px; font-weight: 600; font-size: var(--text); white-space: nowrap; }
+.btn:hover { background: var(--blue-press); text-decoration: none; }
+.btn-s { padding: 7px 15px; font-size: var(--small); }
+.btn-ghost { background: var(--fill); color: var(--blue); }
+.btn-ghost:hover { background: var(--sep); }
+@media (max-width: 900px) { .nav { display: none; } .bar .btn { margin-left: auto; } }
+@media (max-width: 360px) { .brand span small { display: none; } }
+
+/* ---------- Accueil ---------- */
+main { display: block; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 56px; align-items: center; padding: 48px 0 24px; }
+.hero h1 { font-size: var(--h1); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; font-weight: 700; }
+.lead { font-size: 1.1875rem; color: var(--label2); margin: 0 0 24px; max-width: 34em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.disclaim { color: var(--label2); font-size: var(--tiny); margin: 14px 0 0; }
+.phones { display: flex; gap: 20px; align-items: flex-start; }
+.phones .phone:nth-child(2) { margin-top: 48px; }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 28px; }
+  .phones { justify-content: center; }
+}
+@media (max-width: 560px) {
+  .phones .phone:nth-child(2) { display: none; }
+  .hero .phone { border-radius: 44px 44px 0 0; padding-bottom: 0; box-shadow: none; }
+  .hero .phone img { aspect-ratio: 1179 / 1500; border-radius: 36px 36px 0 0; }
+  .hero { padding-bottom: 0; }
+}
+
+/* Téléphone : capture de l'app dans un cadre */
+.phone { width: 260px; flex: none; border-radius: 44px; background: var(--phone); padding: 9px; box-shadow: var(--shadow-phone); }
+.phone img { border-radius: 36px; width: 100%; aspect-ratio: 1179 / 2556; object-fit: cover; object-position: top; background: var(--bg); }
+.phone-s { width: 220px; border-radius: 38px; padding: 8px; }
+.phone-s img { border-radius: 31px; }
+.phone-cut img { aspect-ratio: 1179 / 1800; }
+
+/* ---------- Groupes façon Réglages ---------- */
+.sec { font-size: var(--h-sec); font-weight: 700; margin: 40px 4px 10px; line-height: 1.25; }
+.sec + p.sub { color: var(--label2); margin: -4px 4px 12px; font-size: var(--small); }
+.grp { background: var(--cell); border-radius: var(--r-group); overflow: hidden; margin: 0; padding: 0; list-style: none; }
+.row { display: flex; gap: 14px; align-items: center; padding: 12px 20px; color: var(--label); position: relative; min-height: 52px; }
+.grp > li + li .row::before, .grp > .row + .row::before { content: ""; position: absolute; top: 0; right: 0; left: 63px; border-top: 1px solid var(--sep); }
+a.row:hover { background: var(--fill); text-decoration: none; }
+.row .tx { flex: 1; min-width: 0; }
+.row b { display: block; font-weight: 500; }
+.row small { display: block; color: var(--label2); font-size: var(--small); line-height: 1.35; }
+.chev { width: 14px; height: 14px; color: var(--label3); flex: none; }
+.ic { width: var(--icon); height: var(--icon); border-radius: var(--r-icon); display: grid; place-items: center; flex: none; color: var(--icon-ink); }
+.ic svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic-green { background: var(--green); } .ic-blue { background: var(--blue); } .ic-orange { background: var(--orange); }
+.ic-red { background: var(--red); } .ic-purple { background: var(--purple); } .ic-teal { background: var(--teal); }
+.ic-pink { background: var(--pink); } .ic-gray { background: var(--gray); }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+
+/* Fonctions de l'app : carte avec capture */
+.feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.feat { background: var(--cell); border-radius: var(--r-group); padding: 22px 22px 0; overflow: hidden; display: flex; flex-direction: column; }
+.feat h3 { margin: 0 0 6px; font-size: 1.1875rem; }
+.feat p { margin: 0 0 18px; color: var(--label2); font-size: var(--small); }
+.feat .phone { margin: auto auto -120px; width: 200px; border-radius: 34px 34px 0 0; padding: 7px 7px 0; box-shadow: none; }
+.feat .phone img { border-radius: 28px 28px 0 0; aspect-ratio: 1179 / 1500; }
+@media (max-width: 900px) { .feats { grid-template-columns: 1fr; } .feat .phone { margin-bottom: -60px; } }
+
+/* ---------- Pages de règles (guide) ---------- */
+.doc { display: grid; grid-template-columns: 210px minmax(0, 1fr) 250px; gap: 44px; max-width: var(--max); margin: 0 auto; padding: 28px var(--gutter) 24px; }
+.toc { position: sticky; top: 72px; align-self: start; font-size: var(--small); }
+.toc p { color: var(--label2); font-size: var(--tiny); font-weight: 600; margin: 14px 10px 4px; text-transform: none; }
+.toc p:first-child { margin-top: 0; }
+.toc a { display: block; color: var(--label); padding: 6px 10px; border-radius: var(--r-field); }
+.toc a:hover { background: var(--fill); text-decoration: none; }
+.toc a[aria-current] { background: var(--cell); font-weight: 600; }
+.side { position: sticky; top: 72px; align-self: start; text-align: center; }
+.side p { color: var(--label2); font-size: var(--small); margin: 16px 0 12px; }
+.side .phone { margin: 0 auto; }
+@media (max-width: 1100px) { .doc { grid-template-columns: 200px minmax(0, 1fr); } .side { display: none; } }
+@media (max-width: 820px) { .doc { grid-template-columns: minmax(0, 1fr); padding-top: 16px; } .toc { display: none; } }
+
+article { min-width: 0; max-width: 44em; }
+.crumb { font-size: var(--tiny); color: var(--label2); margin: 0 0 6px; }
+.crumb a { color: var(--label2); }
+article h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 14px; }
+article h2 { font-size: var(--h-sec); line-height: 1.25; margin: 36px 0 10px; scroll-margin-top: 72px; }
+article h3 { font-size: 1.0625rem; margin: 22px 0 6px; }
+article p, article li { line-height: 1.6; }
+article ul, article ol { padding-left: 1.3em; }
+article li + li { margin-top: 4px; }
+.upd { color: var(--label2); font-size: var(--tiny); margin: 0 0 18px; }
+.tldr { background: var(--cell); border-radius: var(--r-card); padding: 16px 20px; margin: 18px 0 8px; }
+.tldr p { margin: 0; }
+.tldr ul { margin: 8px 0 0; }
+.card { background: var(--cell); border-radius: var(--r-card); padding: 16px 20px; margin: 16px 0; }
+.card > :first-child { margin-top: 0; }
+.card > :last-child { margin-bottom: 0; }
+.tbl { width: 100%; border-collapse: collapse; font-size: var(--small); background: var(--cell); border-radius: var(--r-card); overflow: hidden; margin: 14px 0; }
+.tbl th, .tbl td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--sep); vertical-align: top; }
+.tbl thead th { border-top: 0; color: var(--label2); font-weight: 600; font-size: var(--tiny); }
+.tbl td.n, .tbl th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.scroll { overflow-x: auto; }
+.src { font-size: var(--tiny); color: var(--label2); }
+.src a { color: var(--label2); text-decoration: underline; }
+.endcta { background: var(--cell); border-radius: var(--r-group); padding: 22px; margin: 36px 0 8px; display: flex; gap: 18px; align-items: center; }
+.endcta img { width: 56px; height: 56px; border-radius: 13px; flex: none; }
+.endcta div { flex: 1; }
+.endcta b { display: block; }
+.endcta span { color: var(--label2); font-size: var(--small); }
+@media (max-width: 520px) { .endcta { flex-wrap: wrap; } .endcta .btn { width: 100%; } }
+
+/* ---------- Calculateurs ---------- */
+.calc { background: var(--cell); border-radius: var(--r-card); padding: 6px 0 14px; margin: 18px 0; }
+.calc h3 { margin: 10px 20px 2px; font-size: 1.0625rem; }
+.calc > p { margin: 0 20px 8px; color: var(--label2); font-size: var(--small); }
+.calc label, .calc .line { display: flex; align-items: center; gap: 12px; padding: 9px 20px; border-top: 1px solid var(--sep); font-size: var(--text); }
+.calc label span { flex: 1; }
+.calc input { font: inherit; width: 84px; text-align: right; color: var(--label); background: var(--fill); border: 0; border-radius: var(--r-field); padding: 5px 10px; }
+.calc input.wide { width: 100%; text-align: left; }
+.calc label.stack { flex-direction: column; align-items: stretch; gap: 6px; }
+.calc .out { margin: 10px 20px 0; padding: 12px 14px; border-radius: var(--r-field); background: var(--bg); font-size: var(--small); line-height: 1.45; }
+.calc .out b { font-weight: 600; }
+.chk { list-style: none; padding: 0; margin: 4px 0 0; }
+.chk li { display: flex; gap: 8px; align-items: baseline; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--gray); transform: translateY(1px); }
+.dot.ok { background: var(--green); } .dot.warn { background: var(--orange); } .dot.ko { background: var(--red); }
+.calc .hint { color: var(--label2); font-size: var(--tiny); margin: 8px 20px 0; }
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--cell); border-radius: var(--r-group); overflow: hidden; }
+.faq details + details { border-top: 1px solid var(--sep); }
+.faq summary { cursor: pointer; padding: 14px 20px; font-weight: 500; list-style: none; display: flex; gap: 12px; align-items: center; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; width: 8px; height: 8px; margin-left: auto; border-right: 2px solid var(--label3); border-bottom: 2px solid var(--label3); transform: rotate(45deg); flex: none; transition: transform 0.2s; }
+.faq details[open] summary::after { transform: rotate(225deg); }
+.faq details > div { padding: 0 20px 14px; color: var(--label); }
+.faq details > div p { margin: 0 0 8px; }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+
+/* ---------- Étapes d'installation ---------- */
+.steps { counter-reset: st; list-style: none; padding: 0; background: var(--cell); border-radius: var(--r-group); overflow: hidden; }
+.steps li { counter-increment: st; display: flex; gap: 14px; padding: 14px 20px; align-items: flex-start; }
+.steps li + li { border-top: 1px solid var(--sep); margin: 0; }
+.steps li::before { content: counter(st); width: 28px; height: 28px; border-radius: 50%; background: var(--fill); display: grid; place-items: center; font-weight: 600; flex: none; font-size: var(--small); }
+
+/* ---------- Pied de page ---------- */
+footer { margin-top: 56px; border-top: 1px solid var(--hair); }
+.foot { max-width: var(--max); margin: 0 auto; padding: 28px var(--gutter) 40px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; font-size: var(--small); }
+.foot p { color: var(--label2); margin: 0 0 8px; }
+.foot b { display: block; margin-bottom: 8px; font-size: var(--tiny); color: var(--label2); font-weight: 600; }
+.foot a { display: block; color: var(--label); padding: 3px 0; }
+@media (max-width: 760px) { .foot { grid-template-columns: 1fr 1fr; } .foot > :first-child { grid-column: 1 / -1; } }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luis904-svg.github.io/notes-gymnase-site/sitemap.xml
