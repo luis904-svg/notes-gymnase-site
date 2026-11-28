@@ -89,6 +89,17 @@
         line(fails <= 3 ? "ok" : "ko", "Notes sous 4 : <b>" + fails + "</b> (3 au maximum)") + "</ul>" +
         "<b>" + (ok ? "Les trois conditions sont remplies." : "Au moins une condition n'est pas remplie.") + "</b>";
     },
+    bareme: function (f) {
+      var p = num(f.pts.value), m = num(f.max.value), s = num(f.pct.value);
+      if (!(m > 0) || !(p >= 0) || p > m) return err("Entre des points entre 0 et le maximum.");
+      if (!(s >= 10 && s <= 90)) return err("Le pourcentage qui donne 4 va de 10 à 90.");
+      var q = s / 100;
+      function note(r) { return r <= q ? 1 + 3 * r / q : 4 + 2 * (r - q) / (1 - q); }
+      function pts(n) { var r = n <= 4 ? (n - 1) * q / 3 : q + (n - 4) * (1 - q) / 2; return Math.ceil(r * m * 4 - 1e-9) / 4; }
+      var r = p / m, n = note(r);
+      return fmt(p) + " sur " + fmt(m) + " = " + (Math.round(r * 1000) / 10) + " % → note <b>" + fmt2(n) + "</b> (au dixième : " + (Math.round(n * 10) / 10).toFixed(1) + ", au demi-point : " + fmt(half(n)) + ").<br>" +
+        "Points pour 4 : <b>" + fmt(pts(4)) + "</b> · pour 5 : <b>" + fmt(pts(5)) + "</b> · pour 6 : <b>" + fmt(m) + "</b>.";
+    },
     ta: function (f) {
       var p = num(f.pts.value), m = num(f.max.value), s = num(f.pct.value);
       if (!(m > 0) || !(p >= 0) || p > m) return err("Entre des points entre 0 et le maximum.");

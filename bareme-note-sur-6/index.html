@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barème : convertir des points en note sur 6 (calculateur)</title>
+<meta name="description" content="Convertir des points en note de 1 à 6 : barème linéaire 1 + 5 × points ÷ maximum (4 à 60 %), ou 4 placé à un autre pourcentage. Calculateur et points pour 4.">
+<link rel="canonical" href="https://luis904-svg.github.io/notes-gymnase-site/bareme-note-sur-6/">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CH">
+<meta property="og:site_name" content="Notes · gymnase vaudois">
+<meta property="og:title" content="Barème : convertir des points en note sur 6 (calculateur)">
+<meta property="og:description" content="Convertir des points en note de 1 à 6 : barème linéaire 1 + 5 × points ÷ maximum (4 à 60 %), ou 4 placé à un autre pourcentage. Calculateur et points pour 4.">
+<meta property="og:url" content="https://luis904-svg.github.io/notes-gymnase-site/bareme-note-sur-6/">
+<meta property="og:image" content="https://luis904-svg.github.io/notes-gymnase-site/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="L'app Notes : moyennes et promotion au gymnase vaudois">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Barème : convertir des points en note sur 6 (calculateur)","description":"Convertir des points en note de 1 à 6 : barème linéaire 1 + 5 × points ÷ maximum (4 à 60 %), ou 4 placé à un autre pourcentage. Calculateur et points pour 4.","url":"https://luis904-svg.github.io/notes-gymnase-site/bareme-note-sur-6/","inLanguage":"fr-CH","dateModified":"2026-11-23","isPartOf":{"@type":"WebSite","name":"Notes","url":"https://luis904-svg.github.io/notes-gymnase-site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://luis904-svg.github.io/notes-gymnase-site/"},{"@type":"ListItem","position":2,"name":"Barème points → note","item":"https://luis904-svg.github.io/notes-gymnase-site/bareme-note-sur-6/"}]}</script>
+<script src="../calc.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a><header class="bar"><div class="bar-in"><a class="brand" href="../"><img src="../icon-180.png" width="30" height="30" alt=""><span>Notes <small>· gymnase vaudois</small></span></a><nav class="nav" aria-label="Pages"><a href="../promotion-gymnase-vaud/">Promotion</a><a href="../calcul-moyenne-gymnase/">Moyennes</a><a href="../certificat-maturite-vaud/">Maturité</a><a href="../ecg-vaud/">ECG</a><a href="../faq/">FAQ</a><a href="../plaintes-ameliorations/">Avis</a></nav><a class="btn btn-s" href="https://luis904-svg.github.io/notes-gymnase/">Ouvrir l'app</a></div></header><main id="contenu" class="doc"><nav class="toc" aria-label="Guide"><p>Règles</p><a href="../promotion-gymnase-vaud/">Promotion en 1re et 2e</a><a href="../calcul-moyenne-gymnase/">Moyenne d'une branche</a><a href="../certificat-maturite-vaud/">Certificat de maturité</a><a href="../ecg-vaud/">École de culture générale</a><a href="../travaux-assimiles/">Travaux assimilés (TA)</a><a href="../bareme-note-sur-6/" aria-current="page">Barème points → note</a><p>L'app</p><a href="../parents/">Pour les parents</a><a href="../installer/">Installer l'app</a><a href="../confidentialite/">Confidentialité</a><a href="../aide/">Aide et contact</a><a href="../faq/">Questions fréquentes</a><a href="../plaintes-ameliorations/">Plaintes et améliorations</a></nav><article><p class="crumb"><a href="../">Accueil</a> › Règles</p><h1>Barème : convertir des points en note sur 6</h1>
+<p class="upd">Tests notés en points · gymnase et maturité en Suisse</p>
+
+<div class="tldr"><p><b>En bref.</b> Le barème le plus courant en Suisse est linéaire : <b>note = 1 + 5 × points ÷ maximum</b>. Avec lui, <b>60 % des points donnent 4</b> et la totalité donne 6. Si ton enseignant met le 4 ailleurs (par exemple à 50 % ou à 66 %), la note monte en ligne droite de 1 à 4, puis de 4 à 6. Le calculateur ci-dessous fait les deux.</p></div>
+
+<div class="calc" data-calc="bareme">
+  <h3>Points → note</h3>
+  <label><span>Points obtenus</span><input inputmode="decimal" name="pts" value="34" aria-label="Points obtenus"></label>
+  <label><span>Points maximum</span><input inputmode="decimal" name="max" value="48" aria-label="Points maximum"></label>
+  <label><span>Pourcentage qui donne 4</span><input inputmode="decimal" name="pct" value="60" aria-label="Pourcentage qui donne 4"></label>
+  <div class="out" aria-live="polite"></div>
+</div>
+
+<h2 id="lineaire">Le barème linéaire (4 à 60 %)</h2>
+<p>La formule <b>1 + 5 × points ÷ maximum</b> donne 1 pour 0 point et 6 pour le maximum. Le 4 tombe à 60 % des points. Elle est très répandue, mais chaque enseignant peut choisir son barème : il l'indique en général sur le test.</p>
+<div class="scroll"><table class="tbl">
+<thead><tr><th>Part des points</th><th class="n">Note (4 à 60 %)</th></tr></thead>
+<tbody>
+<tr><td>30 %</td><td class="n">2.5</td></tr>
+<tr><td>50 %</td><td class="n">3.5</td></tr>
+<tr><td>60 %</td><td class="n">4</td></tr>
+<tr><td>70 %</td><td class="n">4.5</td></tr>
+<tr><td>80 %</td><td class="n">5</td></tr>
+<tr><td>90 %</td><td class="n">5.5</td></tr>
+<tr><td>100 %</td><td class="n">6</td></tr>
+</tbody></table></div>
+
+<h2 id="seuil">Un autre seuil pour le 4</h2>
+<p>Si le 4 est placé à un autre pourcentage <i>s</i>, le barème a deux pentes :</p>
+<ul>
+  <li>sous le seuil : note = 1 + 3 × part ÷ <i>s</i> ;</li>
+  <li>au-dessus : note = 4 + 2 × (part − <i>s</i>) ÷ (1 − <i>s</i>).</li>
+</ul>
+<p>Avec un seuil de 60 %, ces deux formules redonnent exactement la formule linéaire. Un seuil plus bas rend le 4 plus facile à atteindre, mais le 6 demande toujours tous les points.</p>
+<div class="card"><p><b>Exemple.</b> 34 points sur 48, soit 70.8 %. Avec le 4 à 60 % : 1 + 5 × 34 ÷ 48 = 4.54. Avec le 4 à 50 % : 4 + 2 × (0.708 − 0.5) ÷ 0.5 = 4.83.</p></div>
+
+<h2 id="arrondi">Arrondi de la note d'un test</h2>
+<p>L'arrondi d'un test dépend de l'enseignant : au dixième, au quart ou au demi-point. Ce qui est fixé par le règlement, c'est l'arrondi de la <b>moyenne de la branche</b> au bulletin : au demi-point, une seule fois, à la fin (voir <a href="../calcul-moyenne-gymnase/">calcul de la moyenne</a>). Pour ta moyenne, entre donc la note du test telle qu'elle figure sur ta copie.</p>
+
+<h2 id="plusieurs">Plusieurs petits travaux en points</h2>
+<p>Quand plusieurs évaluations notées en points ne comptent que pour une note (un travail assimilé, ou TA), on additionne les points et les maximums avant de convertir. La page <a href="../travaux-assimiles/">travaux assimilés</a> explique comment l'app le fait.</p>
+
+<p class="src">Le barème de ton enseignant fait foi. Dans l'app Notes, un TA peut être noté en points, avec le pourcentage qui donne 4 de ton choix. Application non officielle. Résultats indicatifs : seul ton bulletin fait foi.</p>
+<div class="endcta"><img src="../icon-180.png" width="56" height="56" alt="" loading="lazy"><div><b>Laisse l'app faire le calcul</b><span>Note tes tests au fil de l'année : moyennes, arrondis et règles sont mis à jour à chaque note.</span></div><a class="btn" href="https://luis904-svg.github.io/notes-gymnase/">Ouvrir l'app</a></div>
+</article><aside class="side"><div class="phone phone-s"><img src="../img/ajouter-390.webp" srcset="../img/ajouter-390.webp 390w, ../img/ajouter-780.webp 780w" sizes="260px" width="390" height="845" alt="Ajouter une note : test, TP ou TA, avec son coefficient." loading="lazy" decoding="async"></div><p>Ajouter une note : test, TP ou TA, avec son coefficient.</p><a class="btn" href="https://luis904-svg.github.io/notes-gymnase/">Ouvrir l'app</a></aside></main><footer><div class="foot"><div><p><b>Notes</b>Projet indépendant, fait par un élève pour les élèves du gymnase vaudois. Ni le canton ni les gymnases ne l'éditent.</p><p>Application non officielle. Résultats indicatifs : seul ton bulletin fait foi.</p></div><div><b>Règles</b><a href="../promotion-gymnase-vaud/">Promotion en 1re et 2e</a><a href="../calcul-moyenne-gymnase/">Moyenne d'une branche</a><a href="../certificat-maturite-vaud/">Certificat de maturité</a><a href="../ecg-vaud/">École de culture générale</a><a href="../travaux-assimiles/">Travaux assimilés (TA)</a><a href="../bareme-note-sur-6/">Barème points → note</a></div><div><b>L'app</b><a href="https://luis904-svg.github.io/notes-gymnase/">Ouvrir l'app</a><a href="../parents/">Pour les parents</a><a href="../installer/">Installer l'app</a><a href="../confidentialite/">Confidentialité</a><a href="../aide/">Aide et contact</a><a href="../faq/">Questions fréquentes</a><a href="../plaintes-ameliorations/">Plaintes et améliorations</a></div></div></footer>
+</body>
+</html>
